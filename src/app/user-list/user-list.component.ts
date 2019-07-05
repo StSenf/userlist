@@ -23,20 +23,20 @@ export class UserListComponent implements OnInit, OnDestroy {
   public ngOnInit() {
     this.subscription = this._userService.getUsers().subscribe(
       (response: HttpResponse<IUser[]>) => {
-      const userList = response.body;
-        console.log(response.body);
+        const userList = response.body;
 
-      this.dataSource = userList.map((user: IUser) => {
-        return {
-          id: user.id,
-          name: user.name,
-          address: this.convertAddressToReadableFormat(user.address),
-        };
-      });
-    },
+        this.dataSource = userList.map((user: IUser) => {
+          return {
+            id: user.id,
+            name: user.name,
+            address: this.convertAddressToReadableFormat(user.address),
+          };
+        });
+      },
       (error: HttpResponse<HttpErrorResponse>) => {
         console.log(error);
-      });
+      }
+    );
   }
 
   public ngOnDestroy() {
