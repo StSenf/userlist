@@ -5,16 +5,20 @@ import {catchError} from 'rxjs/internal/operators';
 
 import {IUser} from './interfaces';
 
-const endpoint = 'https://jsonplaceholder.typicode.com/users';
-
 @Injectable()
 export class UserService {
 
   constructor(private _http: HttpClient) { }
 
   public getUsers(): Observable<HttpResponse<IUser[]> | HttpErrorResponse> {
-
+    const endpoint = 'https://jsonplaceholder.typicode.com/users';
     return this._http.get<IUser[]>(endpoint, {observe: "response"})
+      .pipe(catchError(this.handleError));
+  }
+
+  public getSingleUser(id: number): Observable<HttpResponse<IUser> | HttpErrorResponse> {
+    const endpoint = 'https://jsonplaceholder.typicode.com/users/' + id;
+    return this._http.get<IUser>(endpoint, {observe: "response"})
       .pipe(catchError(this.handleError));
   }
 

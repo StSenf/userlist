@@ -1,3 +1,40 @@
-<p>
-  user-detail works!
-</p>
+<h2 class="mb-4">{{selectedUser.name}}</h2>
+
+<div class="row">
+  <div class="col-12 col-md-6">
+    <dl>
+      <dt>Username</dt>
+      <dd>{{selectedUser.username}}</dd>
+
+      <dt>email</dt>
+      <dd>{{selectedUser.email}}</dd>
+
+      <dt>phone</dt>
+      <dd>{{selectedUser.phone}}</dd>
+
+      <dt>web</dt>
+      <dd>{{selectedUser.website}}</dd>
+    </dl>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <address>
+      <strong>Address</strong><br>
+      {{selectedUserAddress}}
+    </address>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <h5 class="mt-4">Albums</h5>
+    <ul class="list-group">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Morbi leo risus</li>
+      <li class="list-group-item">Porta ac consectetur ac</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+  </div>
+</div>
+
