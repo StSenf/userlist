@@ -1,27 +1,30 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 
 import {UserService} from '../shared/user.service';
 import {IAddress, IDisplayedUser, IUser} from '../shared/interfaces';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnDestroy {
 
   public displayedColumns: string[] = ["id", "name", "address"];
   public dataSource: IDisplayedUser[] = [];
+  public subscription: Subscription;
 
   constructor(private _userService: UserService,
               private _router: Router) { }
 
-  ngOnInit() {
-    this._userService.getUsers().subscribe(
+  public ngOnInit() {
+    this.subscription = this._userService.getUsers().subscribe(
       (response: HttpResponse<IUser[]>) => {
       const userList = response.body;
+        console.log(response.body);
 
       this.dataSource = userList.map((user: IUser) => {
         return {
@@ -34,6 +37,10 @@ export class UserListComponent implements OnInit {
       (error: HttpResponse<HttpErrorResponse>) => {
         console.log(error);
       });
+  }
+
+  public ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   public navigateTo(id: number): void {
