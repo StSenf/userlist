@@ -6,6 +6,8 @@ import {MatTableModule} from '@angular/material';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {UserListComponent} from './user-list/user-list.component';
+import {UserService} from './shared/user.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,11 @@ import {UserListComponent} from './user-list/user-list.component';
     BrowserModule,
     BrowserAnimationsModule,
     MatTableModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    UserService,
+  ],
   bootstrap: [
     AppComponent,
   ]
