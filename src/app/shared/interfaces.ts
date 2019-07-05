@@ -13,7 +13,7 @@ export interface IUser {
   company: ICompany;
 }
 
-interface IAddress {
+export interface IAddress {
   street: string;
   suite: string;
   city: string;
@@ -44,4 +44,13 @@ export interface IPhoto {
   title: string;
   url: string;
   thumbnailUrl: string;
+}
+
+/**
+ * Is used to display the user in the user-list table
+ */
+export interface IDisplayedUser {
+  id: number;
+  name: string;
+  address: string;
 }
