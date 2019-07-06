@@ -19,7 +19,7 @@ export class UserAddressPipe implements PipeTransform {
   }
 
   private convertAddressToReadableFormat(address: IAddress): string {
-    return `${address.street} ${address.suite}, ${address.city} ${address.zipcode}`;
+    return `${address.street} ${address.suite}, ${address.zipcode} ${address.city}`;
   }
 
 }
