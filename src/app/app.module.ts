@@ -7,19 +7,21 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {HttpClientModule} from '@angular/common/http';
-import {UserDetailComponent} from './user-detail/user-detail.component';
 
 import {AlbumService} from './shared/album.service';
 import {AlbumResolver} from './user-detail/resolver/album.resolver';
-import {UserService} from './shared/user.service';
+import {UserAddressPipe} from './shared/pipes/user-address.pipe';
+import {UserDetailComponent} from './user-detail/user-detail.component';
 import {UserDetailResolver} from './user-detail/resolver/user-detail.resolver';
 import {UserListResolver} from './user-list/resolver/user-list.resolver';
+import {UserService} from './shared/user.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserAddressPipe,
   ],
   imports: [
     AppRoutingModule,

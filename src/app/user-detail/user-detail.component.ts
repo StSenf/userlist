@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ReplaySubject} from 'rxjs';
 
-import {IAddress} from '../shared/interfaces';
 import {UserVm} from '../shared/models/user-vm';
 import {AlbumVm} from '../shared/models/album-vm';
 
@@ -14,7 +13,6 @@ import {AlbumVm} from '../shared/models/album-vm';
 export class UserDetailComponent implements OnInit {
 
   public selectedUser: UserVm;
-  public selectedUserAddress = "";
   public selectedUserAlbum$ = new ReplaySubject<AlbumVm[]>(1);
 
   constructor(private _activatedRoute: ActivatedRoute) { }
@@ -25,12 +23,7 @@ export class UserDetailComponent implements OnInit {
   }
 
   private getSelectedUser(): void {
-    this.selectedUser        = this._activatedRoute.snapshot.data.singleUser;
-    this.selectedUserAddress = this.convertAddressToReadableFormat(this.selectedUser.address);
-  }
-
-  private convertAddressToReadableFormat(address: IAddress): string {
-    return `${address.street} ${address.suite}, ${address.city} ${address.zipcode}`;
+    this.selectedUser = this._activatedRoute.snapshot.data.singleUser;
   }
 
   private getAlbumsOfSelectedUser(): void {
