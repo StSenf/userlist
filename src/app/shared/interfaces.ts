@@ -26,7 +26,7 @@ interface IGeoData {
   lng: string;
 }
 
-interface ICompany {
+export interface ICompany {
   name: string;
   catchPhrase: string;
   bs: string;

@@ -1,23 +1,23 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {UserService} from '../shared/user.service';
 import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
-import {IAddress, IAlbum, IUser} from '../shared/interfaces';
-import {Subject, Subscription} from 'rxjs';
+import {Subject} from 'rxjs';
+
+import {UserService} from '../shared/user.service';
 import {AlbumService} from '../shared/album.service';
+import {IAddress, IAlbum} from '../shared/interfaces';
+import {UserVm} from '../shared/models/user-vm';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.scss']
 })
-export class UserDetailComponent implements OnInit, OnDestroy {
+export class UserDetailComponent implements OnInit {
 
-  public selectedUser: IUser = {};
+  public selectedUser: UserVm;
   public selectedUserAddress = "";
   public selectedUserAlbum$ = new Subject<IAlbum[]>();
-
-  public subscription: Subscription;
 
   constructor(private _activatedRoute: ActivatedRoute,
               private _userService: UserService,
@@ -27,23 +27,10 @@ export class UserDetailComponent implements OnInit, OnDestroy {
     this.getSelectedUser();
   }
 
-  public ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
   private getSelectedUser(): void {
-    const id = +this._activatedRoute.snapshot.paramMap.get('id');
-
-    this.subscription = this._userService.getSingleUser(id).subscribe(
-      (response: HttpResponse<IUser>) => {
-        this.selectedUser = response.body;
-        this.selectedUserAddress = this.convertAddressToReadableFormat(this.selectedUser.address);
-
-        this.getAlbumsOfSelectedUser();
-      },
-      (error: HttpResponse<HttpErrorResponse>) => {
-        console.log(error);
-      });
+    this.selectedUser = this._activatedRoute.snapshot.data.singleUser;
+    this.selectedUserAddress = this.convertAddressToReadableFormat(this.selectedUser.address);
+    this.getAlbumsOfSelectedUser();
   }
 
   private convertAddressToReadableFormat(address: IAddress): string {
