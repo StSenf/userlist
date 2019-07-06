@@ -1,22 +1,17 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
-import {IAlbum} from './interfaces';
-import {catchError} from 'rxjs/internal/operators';
-import {Observable, throwError} from 'rxjs';
+import {AlbumVm} from './models/album-vm';
 
 @Injectable()
 export class AlbumService {
 
   constructor(private _http: HttpClient) { }
 
-  public getAlbums(): Observable<HttpResponse<IAlbum[]> | HttpErrorResponse> {
+  public getAlbums(): Observable<AlbumVm[]> {
     const endpoint = 'http://jsonplaceholder.typicode.com/albums';
-    return this._http.get<IAlbum[]>(endpoint, {observe: "response"})
-      .pipe(catchError(this.handleError));
-  }
 
-  private handleError(error: HttpErrorResponse): Observable<HttpErrorResponse> {
-    return throwError("Something went wrong while fetching the data. Please try later again.");
+    return this._http.get<AlbumVm[]>(endpoint);
   }
 }

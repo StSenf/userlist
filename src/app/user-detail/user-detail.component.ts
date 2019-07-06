@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {HttpErrorResponse, HttpResponse} from '@angular/common/http';
-import {Subject} from 'rxjs';
+import {ReplaySubject} from 'rxjs';
 
-import {UserService} from '../shared/user.service';
-import {AlbumService} from '../shared/album.service';
-import {IAddress, IAlbum} from '../shared/interfaces';
+import {IAddress} from '../shared/interfaces';
 import {UserVm} from '../shared/models/user-vm';
+import {AlbumVm} from '../shared/models/album-vm';
 
 @Component({
   selector: 'app-user-detail',
@@ -17,38 +15,29 @@ export class UserDetailComponent implements OnInit {
 
   public selectedUser: UserVm;
   public selectedUserAddress = "";
-  public selectedUserAlbum$ = new Subject<IAlbum[]>();
+  public selectedUserAlbum$ = new ReplaySubject<AlbumVm[]>(1);
 
-  constructor(private _activatedRoute: ActivatedRoute,
-              private _userService: UserService,
-              private _albumService: AlbumService) { }
+  constructor(private _activatedRoute: ActivatedRoute) { }
 
   public ngOnInit() {
     this.getSelectedUser();
-  }
-
-  private getSelectedUser(): void {
-    this.selectedUser = this._activatedRoute.snapshot.data.singleUser;
-    this.selectedUserAddress = this.convertAddressToReadableFormat(this.selectedUser.address);
     this.getAlbumsOfSelectedUser();
   }
 
-  private convertAddressToReadableFormat(address: IAddress): string {
-    return `${address.street}  ${address.suite}, ${address.city} ${address.zipcode}`;
+  private getSelectedUser(): void {
+    this.selectedUser        = this._activatedRoute.snapshot.data.singleUser;
+    this.selectedUserAddress = this.convertAddressToReadableFormat(this.selectedUser.address);
   }
 
-  private getAlbumsOfSelectedUser() {
-    this._albumService.getAlbums().subscribe(
-      (response: HttpResponse<IAlbum[]>) => {
-        const albumList     = response.body;
-        const albumsOfUser  = albumList.filter((album) => album.userId === this.selectedUser.id);
+  private convertAddressToReadableFormat(address: IAddress): string {
+    return `${address.street} ${address.suite}, ${address.city} ${address.zipcode}`;
+  }
 
-        this.selectedUserAlbum$.next(albumsOfUser);
-      },
-      (error: HttpResponse<HttpErrorResponse>) => {
-        console.log(error);
-      }
-    );
+  private getAlbumsOfSelectedUser(): void {
+    const albumList     = this._activatedRoute.snapshot.data.albums;
+    const albumsOfUser  = albumList.filter((album) => album.userId === this.selectedUser.id);
+
+    this.selectedUserAlbum$.next(albumsOfUser);
   }
 
 }
