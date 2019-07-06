@@ -5,6 +5,7 @@ import {UserListComponent} from './user-list/user-list.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {UserDetailResolver} from './user-detail/resolver/user-detail.resolver';
 import {UserListResolver} from './user-list/resolver/user-list.resolver';
+import {AlbumResolver} from './user-detail/resolver/album.resolver';
 
 const routes: Routes = [
   {
@@ -19,6 +20,7 @@ const routes: Routes = [
     component: UserDetailComponent,
     resolve: {
       singleUser: UserDetailResolver,
+      albums: AlbumResolver,
     },
   },
   {

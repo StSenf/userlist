@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 
 import {AlbumService} from './shared/album.service';
+import {AlbumResolver} from './user-detail/resolver/album.resolver';
 import {UserService} from './shared/user.service';
 import {UserDetailResolver} from './user-detail/resolver/user-detail.resolver';
 import {UserListResolver} from './user-list/resolver/user-list.resolver';
@@ -29,6 +30,7 @@ import {UserListResolver} from './user-list/resolver/user-list.resolver';
   ],
   providers: [
     AlbumService,
+    AlbumResolver,
     UserService,
     UserDetailResolver,
     UserListResolver,
