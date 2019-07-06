@@ -1,12 +1,65 @@
-import { TestBed } from '@angular/core/testing';
+import {getTestBed, TestBed} from '@angular/core/testing';
+import {ActivatedRoute} from '@angular/router';
+import {RouterTestingModule} from '@angular/router/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {Observable, of} from 'rxjs';
 
-import { AlbumResolver } from './album.service';
+import {AlbumService} from '../../shared/album.service';
+import {AlbumResolver} from './album.resolver';
+
+import Spy = jasmine.Spy;
 
 describe('AlbumService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
-    const service: AlbumResolver = TestBed.get(AlbumResolver);
-    expect(service).toBeTruthy();
+  const albumMock = [
+    {
+      userId: 3,
+      id: 1,
+      title: "Cool Album",
+    }
+  ];
+
+  let resolver: AlbumResolver;
+  let route: ActivatedRoute;
+  let service: AlbumService;
+  let getSpy: Spy;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        HttpClientTestingModule,
+      ],
+      providers: [
+        AlbumResolver,
+        AlbumService,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            albums: albumMock,
+          }
+        }
+      ],
+    });
+
+    const injector = getTestBed();
+    resolver = injector.get(AlbumResolver);
+    service  = injector.get(AlbumService);
+    route    = injector.get(ActivatedRoute);
+
+    getSpy = spyOn(service, "getAlbums")
+      .and
+      .returnValue(of(albumMock));
+  });
+
+  it("should resolve a observable", () => {
+    expect(resolver.resolve() instanceof Observable).toBe(true);
+  });
+
+  it("should call service methode", () => {
+    resolver
+      .resolve().subscribe(() => {
+      expect(getSpy).toHaveBeenCalled();
+    });
   });
 });
