@@ -4,11 +4,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {UserListComponent} from './user-list/user-list.component';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {UserDetailResolver} from './user-detail/resolver/user-detail.resolver';
+import {UserListResolver} from './user-list/resolver/user-list.resolver';
 
 const routes: Routes = [
   {
     path: "users",
     component: UserListComponent,
+    resolve: {
+      userList: UserListResolver,
+    }
   },
   {
     path: 'user/:id',
