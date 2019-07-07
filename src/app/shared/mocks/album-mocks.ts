@@ -1,29 +1,29 @@
-import {IAlbum} from '../interfaces';
+import {IAlbum} from "../interfaces";
 
 export const ALBUM_MOCKS: IAlbum[] = [
   {
-    userId: 1,
     id:     1,
     title:  "quidem molestiae enim",
+    userId: 1,
   },
   {
-    userId: 1,
     id:     2,
-    title:  "sunt qui excepturi placeat culpa"
+    title:  "sunt qui excepturi placeat culpa",
+    userId: 1,
   },
   {
-    userId: 1,
     id:     3,
-    title:  "omnis laborum odio"
-  },
-  {
+    title:  "omnis laborum odio",
     userId: 1,
-    id:     4,
-    title:  "non esse culpa molestiae omnis sed optio"
   },
   {
-    userId: 2,
+    id:     4,
+    title:  "non esse culpa molestiae omnis sed optio",
+    userId: 1,
+  },
+  {
     id:     5,
-    title:  "eaque aut omnis a"
+    title:  "eaque aut omnis a",
+    userId: 2,
   },
 ];

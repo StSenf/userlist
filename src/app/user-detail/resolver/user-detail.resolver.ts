@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve} from '@angular/router';
-import {Observable, of} from 'rxjs';
+import {Injectable} from "@angular/core";
+import {ActivatedRouteSnapshot, Resolve} from "@angular/router";
+import {of, Observable} from "rxjs";
 
-import {UserVm} from '../../shared/models/user-vm';
-import {UserService} from '../../shared/services/user.service';
+import {UserVm} from "../../shared/models/user-vm";
+import {UserService} from "../../shared/services/user.service";
 
 @Injectable()
 export class UserDetailResolver implements Resolve<UserVm> {

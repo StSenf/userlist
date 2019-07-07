@@ -1,16 +1,16 @@
-import {getTestBed, TestBed} from '@angular/core/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {ActivatedRoute} from '@angular/router';
-import {Observable, of} from 'rxjs';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {getTestBed, TestBed} from "@angular/core/testing";
+import {ActivatedRoute} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
+import {of, Observable} from "rxjs";
 
-import {UserListResolver} from './user-list.resolver';
-import {USER_MOCKS} from '../../shared/mocks/user-mocks';
-import {UserService} from '../../shared/services/user.service';
+import {USER_MOCKS} from "../../shared/mocks/user-mocks";
+import {UserService} from "../../shared/services/user.service";
+import {UserListResolver} from "./user-list.resolver";
 
 import Spy = jasmine.Spy;
 
-describe('UserListService', () => {
+describe("UserListService", () => {
 
   let resolver: UserListResolver;
   let route: ActivatedRoute;
@@ -31,8 +31,8 @@ describe('UserListService', () => {
           useValue: {
             userList: USER_MOCKS,
           },
-        }
-      ]
+        },
+      ],
     });
 
     const injector = getTestBed();

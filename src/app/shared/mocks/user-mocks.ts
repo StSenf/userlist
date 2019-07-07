@@ -1,56 +1,56 @@
-import {IUser} from '../interfaces';
+import {IUser} from "../interfaces";
 
 export const USER_MOCKS: IUser[] = [
   {
-    id:       1,
-    name:     "Leane Miller",
-    username: "coolleane",
-    email:    "e@e.de",
     address:
       {
+        city:     "Leipzig",
+        geo:
+          {
+            lat: "xxxxxx",
+            lng: "yyyyyy",
+          },
         street:   "Gießerstraße",
         suite:    "Wohnung 3A",
-        city:     "Leipzig",
         zipcode:  "04229",
-        geo:
-          {
-            lat: "xxxxxx",
-            lng: "yyyyyy",
-          },
       },
-    phone:    "000",
-    website:  "www",
     company:
       {
-        name:        "Cool Inc.",
-        catchPhrase: "Jippy",
         bs:          "BS",
+        catchPhrase: "Jippy",
+        name:        "Cool Inc.",
       },
+    email:    "e@e.de",
+    id:       1,
+    name:     "Leane Miller",
+    phone:    "000",
+    username: "coolleane",
+    website:  "www",
   },
   {
-    id:       2,
-    name:     "Corey Tyler",
-    username: "jabba",
-    email:    "g@e.de",
     address:
       {
-        street:   "Gießerstraße",
-        suite:    "Wohnung 28A",
         city:     "Leipzig",
-        zipcode:  "04229",
         geo:
           {
             lat: "xxxxxx",
             lng: "yyyyyy",
           },
+        street:   "Gießerstraße",
+        suite:    "Wohnung 28A",
+        zipcode:  "04229",
       },
-    phone:    "111",
-    website:  "www",
     company:
       {
-        name:        "Brothers Company",
-        catchPhrase: "Cool products",
         bs:          "BS",
+        catchPhrase: "Cool products",
+        name:        "Brothers Company",
       },
+    email:    "g@e.de",
+    id:       2,
+    name:     "Corey Tyler",
+    phone:    "111",
+    username: "jabba",
+    website:  "www",
   },
 ];

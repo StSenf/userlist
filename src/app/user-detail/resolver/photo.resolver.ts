@@ -1,8 +1,8 @@
+import {HttpErrorResponse} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 import {Resolve} from "@angular/router";
-import {Observable, of, throwError} from "rxjs";
+import {of, throwError, Observable} from "rxjs";
 import {catchError} from "rxjs/internal/operators";
-import {HttpErrorResponse} from "@angular/common/http";
 
 import {PhotoVm} from "../../shared/models/photo-vm";
 import {PhotoService} from "../../shared/services/photo.service";

@@ -1,15 +1,15 @@
-import {async, ComponentFixture, getTestBed, TestBed} from "@angular/core/testing";
-import {NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {RouterTestingModule} from "@angular/router/testing";
 import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {async, getTestBed, ComponentFixture, TestBed} from "@angular/core/testing";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
 
-import {UserDetailComponent} from "./user-detail.component";
-import {UserAddressPipe} from "../shared/pipes/user-address.pipe";
-import {USER_MOCKS} from "../shared/mocks/user-mocks";
+import {IUser} from "../shared/interfaces";
 import {ALBUM_MOCKS} from "../shared/mocks/album-mocks";
 import {PHOTO_MOCKS} from "../shared/mocks/photo-mocks";
-import {IUser} from "../shared/interfaces";
+import {USER_MOCKS} from "../shared/mocks/user-mocks";
+import {UserAddressPipe} from "../shared/pipes/user-address.pipe";
+import {UserDetailComponent} from "./user-detail.component";
 
 describe("UserDetailComponent", () => {
   let component: UserDetailComponent;
@@ -36,18 +36,18 @@ describe("UserDetailComponent", () => {
           useValue: {
             snapshot: {
               data: {
-                singleUser: mockUser,
                 albums: ALBUM_MOCKS,
                 photos: PHOTO_MOCKS,
+                singleUser: mockUser,
               },
               url: [
                 {
                   path: "user/1",
-                }
-              ]
-            }
-          }
-        }
+                },
+              ],
+            },
+          },
+        },
       ],
     })
     .compileComponents();

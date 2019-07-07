@@ -1,14 +1,14 @@
-import {async, ComponentFixture, getTestBed, TestBed} from '@angular/core/testing';
-import {MatTableModule} from '@angular/material';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {RouterTestingModule} from '@angular/router/testing';
-import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {async, getTestBed, ComponentFixture, TestBed} from "@angular/core/testing";
+import {MatTableModule} from "@angular/material";
+import {NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
 
-import {UserListComponent} from './user-list.component';
-import {UserAddressPipe} from '../shared/pipes/user-address.pipe';
-import {USER_MOCKS} from '../shared/mocks/user-mocks';
-import {UserService} from '../shared/services/user.service';
+import {USER_MOCKS} from "../shared/mocks/user-mocks";
+import {UserAddressPipe} from "../shared/pipes/user-address.pipe";
+import {UserService} from "../shared/services/user.service";
+import {UserListComponent} from "./user-list.component";
 
 describe("UserListComponent", () => {
   let component: UserListComponent;
@@ -42,11 +42,11 @@ describe("UserListComponent", () => {
               url: [
                 {
                   path: "users",
-                }
-              ]
-            }
-          }
-        }
+                },
+              ],
+            },
+          },
+        },
       ],
     })
     .compileComponents();

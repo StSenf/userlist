@@ -1,13 +1,13 @@
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {getTestBed, TestBed} from "@angular/core/testing";
-import {of} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {of} from "rxjs";
 
-import {PhotoResolver} from "./photo.resolver";
 import {ALBUM_MOCKS} from "../../shared/mocks/album-mocks";
-import {PhotoService} from "../../shared/services/photo.service";
 import {PHOTO_MOCKS} from "../../shared/mocks/photo-mocks";
+import {PhotoService} from "../../shared/services/photo.service";
+import {PhotoResolver} from "./photo.resolver";
 
 import Spy = jasmine.Spy;
 
@@ -31,8 +31,8 @@ describe("PhotoResolver", () => {
           provide: ActivatedRoute,
           useValue: {
             photos: PHOTO_MOCKS,
-          }
-        }
+          },
+        },
       ],
     });
 
@@ -47,7 +47,7 @@ describe("PhotoResolver", () => {
   });
 
   it("should be created", () => {
-    const service: PhotoResolver = TestBed.get(PhotoResolver);
-    expect(service).toBeTruthy();
+    const photoResolver: PhotoResolver = TestBed.get(PhotoResolver);
+    expect(photoResolver).toBeTruthy();
   });
 });

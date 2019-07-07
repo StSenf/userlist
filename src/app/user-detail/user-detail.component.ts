@@ -2,15 +2,15 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {ReplaySubject} from "rxjs";
 
-import {UserVm} from "../shared/models/user-vm";
-import {AlbumVm} from "../shared/models/album-vm";
 import {IAlbum} from "../shared/interfaces";
+import {AlbumVm} from "../shared/models/album-vm";
 import {PhotoVm} from "../shared/models/photo-vm";
+import {UserVm} from "../shared/models/user-vm";
 
 @Component({
   selector: "app-user-detail",
+  styleUrls: ["./user-detail.component.scss"],
   templateUrl: "./user-detail.component.html",
-  styleUrls: ["./user-detail.component.scss"]
 })
 export class UserDetailComponent implements OnInit {
 

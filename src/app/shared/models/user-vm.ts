@@ -1,4 +1,4 @@
-import {IAddress, ICompany, IUser} from '../interfaces';
+import {IAddress, ICompany, IUser} from "../interfaces";
 
 export class UserVm implements IUser {
   public id: number;

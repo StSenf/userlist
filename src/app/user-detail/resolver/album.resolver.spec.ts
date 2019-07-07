@@ -1,16 +1,16 @@
-import {getTestBed, TestBed} from '@angular/core/testing';
-import {ActivatedRoute} from '@angular/router';
-import {RouterTestingModule} from '@angular/router/testing';
-import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {Observable, of} from 'rxjs';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {getTestBed, TestBed} from "@angular/core/testing";
+import {ActivatedRoute} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
+import {of, Observable} from "rxjs";
 
-import {ALBUM_MOCKS} from '../../shared/mocks/album-mocks';
-import {AlbumResolver} from './album.resolver';
-import {AlbumService} from '../../shared/services/album.service';
+import {ALBUM_MOCKS} from "../../shared/mocks/album-mocks";
+import {AlbumService} from "../../shared/services/album.service";
+import {AlbumResolver} from "./album.resolver";
 
 import Spy = jasmine.Spy;
 
-describe('AlbumService', () => {
+describe("AlbumService", () => {
 
   let resolver: AlbumResolver;
   let route: ActivatedRoute;
@@ -30,8 +30,8 @@ describe('AlbumService', () => {
           provide: ActivatedRoute,
           useValue: {
             albums: ALBUM_MOCKS,
-          }
-        }
+          },
+        },
       ],
     });
 

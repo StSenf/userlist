@@ -1,15 +1,15 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {IAddress} from '../interfaces';
+import {Pipe, PipeTransform} from "@angular/core";
+import {IAddress} from "../interfaces";
 
 @Pipe({
-  name: 'userAddress'
+  name: "userAddress",
 })
 export class UserAddressPipe implements PipeTransform {
 
   /**
    * Converts a given IAddress into a readable string.
    */
-  transform(value: IAddress): string {
+  public transform(value: IAddress): string {
 
     if (value) {
       return this.convertAddressToReadableFormat(value);

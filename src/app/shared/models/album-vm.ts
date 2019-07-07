@@ -1,4 +1,4 @@
-import {IAlbum} from '../interfaces';
+import {IAlbum} from "../interfaces";
 
 export class AlbumVm implements IAlbum {
   public userId: number;

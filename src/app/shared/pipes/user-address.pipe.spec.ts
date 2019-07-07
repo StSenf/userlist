@@ -1,18 +1,18 @@
+import {IAddress} from "../interfaces";
 import { UserAddressPipe } from "./user-address.pipe";
-import {IAddress} from '../interfaces';
 
 describe("UserAddressPipe", () => {
   let userAddressPipe: UserAddressPipe;
 
   const address: IAddress = {
+    city:     "Leipzig",
+    geo:      {
+      lat: "xxxxxx",
+      lng: "yyyyyy",
+    },
     street:   "Gießerstraße",
     suite:    "Wohnung 3A",
-    city:     "Leipzig",
     zipcode:  "04229",
-    geo:      {
-                lat: "xxxxxx",
-                lng: "yyyyyy",
-    },
   };
 
   const readableAddress = "Gießerstraße Wohnung 3A, 04229 Leipzig";
