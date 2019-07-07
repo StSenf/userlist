@@ -1,6 +1,5 @@
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {getTestBed, TestBed} from "@angular/core/testing";
-import {ActivatedRoute} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
 import {of, Observable} from "rxjs";
 
@@ -12,8 +11,9 @@ import Spy = jasmine.Spy;
 
 describe("UserListService", () => {
 
+  const userMocks = USER_MOCKS;
+
   let resolver: UserListResolver;
-  let route: ActivatedRoute;
   let service: UserService;
   let getSpy: Spy;
 
@@ -26,33 +26,33 @@ describe("UserListService", () => {
       providers: [
         UserListResolver,
         UserService,
-        {
-          provide: ActivatedRoute,
-          useValue: {
-            userList: USER_MOCKS,
-          },
-        },
       ],
     });
 
     const injector = getTestBed();
     resolver = injector.get(UserListResolver);
     service  = injector.get(UserService);
-    route    = injector.get(ActivatedRoute);
 
     getSpy = spyOn(service, "getUsers")
       .and
-      .returnValue(of(USER_MOCKS));
+      .returnValue(of(userMocks));
   });
 
   it("should resolve a observable", () => {
     expect(resolver.resolve() instanceof Observable).toBe(true);
   });
 
-  it("should call service methode", () => {
+  it("should call service method", () => {
     resolver
       .resolve().subscribe(() => {
       expect(getSpy).toHaveBeenCalled();
+    });
+  });
+
+  it("should resolve a list of users", () => {
+    resolver
+      .resolve().subscribe((users) => {
+      expect(users).toEqual(userMocks);
     });
   });
 
