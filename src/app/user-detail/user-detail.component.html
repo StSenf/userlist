@@ -31,10 +31,36 @@
 
     <ul class="list-group">
       <li class="list-group-item"
-          *ngFor="let album of selectedUserAlbum$ | async">
+          *ngFor="let album of selectedUserAlbum$ | async;
+                  let idx = index;"
+          (click)="showPhotosOfSelectedAlbum(album)">
         {{album.title}}
       </li>
     </ul>
   </div>
 </div>
+
+
+<div class="row mb-4">
+  <div class="col-12">
+    <h5>Photos</h5>
+
+    <ng-container *ngIf="clickedAlbumPhoto$ | async; else infoText">
+      <img class="rounded
+                  float-left"
+           *ngFor="let photo of clickedAlbumPhoto$ | async"
+           src="{{photo.thumbnailUrl}}"
+           alt="{{photo.title}}"
+           title="{{photo.title}}"
+      >
+    </ng-container>
+
+    <ng-template #infoText>
+      <small>Please click on an album to see the photos.</small>
+    </ng-template>
+
+  </div>
+</div>
+
+
 
