@@ -3,7 +3,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {RouterTestingModule} from '@angular/router/testing';
 
 import {UserDetailResolver} from './user-detail.resolver';
-import {UserService} from '../../shared/user.service';
+import {UserService} from '../../shared/services/user.service';
 
 describe('UserDetailService', () => {
 

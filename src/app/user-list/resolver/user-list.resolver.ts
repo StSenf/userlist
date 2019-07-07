@@ -5,7 +5,7 @@ import {catchError} from 'rxjs/internal/operators';
 import {Observable, of, throwError} from 'rxjs';
 
 import {UserVm} from '../../shared/models/user-vm';
-import {UserService} from '../../shared/user.service';
+import {UserService} from '../../shared/services/user.service';
 
 @Injectable()
 export class UserListResolver implements Resolve<UserVm[]> {

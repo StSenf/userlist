@@ -8,15 +8,15 @@ import {AppComponent} from './app.component';
 import {UserListComponent} from './user-list/user-list.component';
 import {HttpClientModule} from '@angular/common/http';
 
-import {AlbumService} from './shared/album.service';
 import {AlbumResolver} from './user-detail/resolver/album.resolver';
 import {UserAddressPipe} from './shared/pipes/user-address.pipe';
 import {UserDetailComponent} from './user-detail/user-detail.component';
 import {UserDetailResolver} from './user-detail/resolver/user-detail.resolver';
 import {UserListResolver} from './user-list/resolver/user-list.resolver';
-import {UserService} from './shared/user.service';
 import {PhotoResolver} from './user-detail/resolver/photo.resolver';
 import {PhotoService} from './shared/services/photo.service';
+import {AlbumService} from './shared/services/album.service';
+import {UserService} from './shared/services/user.service';
 
 @NgModule({
   declarations: [

@@ -4,9 +4,9 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {Observable, of} from 'rxjs';
 
-import {AlbumService} from '../../shared/album.service';
-import {AlbumResolver} from './album.resolver';
 import {ALBUM_MOCKS} from '../../shared/mocks/album-mocks';
+import {AlbumResolver} from './album.resolver';
+import {AlbumService} from '../../shared/services/album.service';
 
 import Spy = jasmine.Spy;
 

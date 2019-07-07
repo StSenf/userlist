@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
-import {UserService} from '../shared/user.service';
 import {UserVm} from '../shared/models/user-vm';
+import {UserService} from '../shared/services/user.service';
 
 @Component({
   selector: 'app-user-list',

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import {UserVm} from './models/user-vm';
+import {UserVm} from '../models/user-vm';
 
 @Injectable()
 export class UserService {

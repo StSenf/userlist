@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-import {AlbumVm} from './models/album-vm';
+import {AlbumVm} from '../models/album-vm';
 
 @Injectable()
 export class AlbumService {
