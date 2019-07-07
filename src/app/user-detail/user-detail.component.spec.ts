@@ -11,7 +11,7 @@ import {ALBUM_MOCKS} from "../shared/mocks/album-mocks";
 import {PHOTO_MOCKS} from "../shared/mocks/photo-mocks";
 import {IUser} from "../shared/interfaces";
 
-fdescribe("UserDetailComponent", () => {
+describe("UserDetailComponent", () => {
   let component: UserDetailComponent;
   let fixture: ComponentFixture<UserDetailComponent>;
   let route: ActivatedRouteSnapshot;

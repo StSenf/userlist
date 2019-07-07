@@ -6,11 +6,11 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
 
 import {UserListComponent} from './user-list.component';
-import {UserService} from '../shared/user.service';
 import {UserAddressPipe} from '../shared/pipes/user-address.pipe';
 import {USER_MOCKS} from '../shared/mocks/user-mocks';
+import {UserService} from '../shared/services/user.service';
 
-fdescribe("UserListComponent", () => {
+describe("UserListComponent", () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
   let route: ActivatedRouteSnapshot;
