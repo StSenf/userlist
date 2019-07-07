@@ -10,7 +10,7 @@ import {AlbumResolver} from "./album.resolver";
 
 import Spy = jasmine.Spy;
 
-describe("AlbumService", () => {
+describe("AlbumResolver", () => {
 
   let resolver: AlbumResolver;
   let route: ActivatedRoute;
