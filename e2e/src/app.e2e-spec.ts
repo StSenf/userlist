@@ -4,36 +4,31 @@ import {AppPage} from "./app.po";
 describe("Userlist app", () => {
   let page: AppPage;
 
-  beforeEach(() => {
+  beforeAll(() => {
     page = new AppPage();
   });
 
   describe("UserListComponent", () => {
+    let matRow;
 
     beforeAll(async () => {
-      await page.navigateTo();
-    });
+      await page.navigateTo("/users");
 
-    fit("dummy test", () => {
-      expect(true).toBeTruthy();
+      matRow = element.all(by.className("mat-row"));
     });
 
     it("renders a Material table", () => {
       const matTable = element(by.className("mat-table"));
-      expect(matTable).toBe(true);
+      expect(matTable.isPresent()).toBe(true);
     });
 
     it("renders correct amount of rows", () => {
-      const matRow       = element.all(by.className("mat-row"));
       const expectedRows = 10;
       expect(matRow.count()).toBe(expectedRows);
     });
 
     it("click on row navigates to user detail", () => {
-      const matRow   = element.all(by.className("mat-row"));
-      const firstRow = matRow.first();
-
-      firstRow.click();
+      matRow.first().click();
       const url = browser.getCurrentUrl();
 
       expect(url).toBe("http://localhost:4200/user/1");
@@ -41,10 +36,11 @@ describe("Userlist app", () => {
   });
 
   describe("UserDetailComponent", () => {
+    const photoContainer = element(by.className("photo-container"));
 
     it("renders user-detail component", () => {
       const userDetail = element(by.css("app-user-detail"));
-      expect(userDetail).toBe(true);
+      expect(userDetail.isPresent()).toBe(true);
     });
 
     it("renders photo info text", () => {
@@ -52,14 +48,17 @@ describe("Userlist app", () => {
       expect(infoText.getText()).toBe("Please click on an album to see the photos.");
     });
 
+    it("initially has no photos rendered", () => {
+      expect(photoContainer.isPresent()).toBe(false);
+    });
+
     it("click on album renders photos", () => {
       const albumItems     = element.all(by.className("list-group-item"));
       const firstAlbumItem = albumItems.first();
 
       firstAlbumItem.click();
-      const photoContainer = element(by.className("photo-container"));
 
-      expect(photoContainer).toBe(true);
+      expect(photoContainer.isPresent()).toBe(true);
     });
   });
 });
