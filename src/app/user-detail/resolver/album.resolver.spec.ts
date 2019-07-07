@@ -6,18 +6,11 @@ import {Observable, of} from 'rxjs';
 
 import {AlbumService} from '../../shared/album.service';
 import {AlbumResolver} from './album.resolver';
+import {ALBUM_MOCKS} from '../../shared/mocks/album-mocks';
 
 import Spy = jasmine.Spy;
 
 describe('AlbumService', () => {
-
-  const albumMock = [
-    {
-      userId: 3,
-      id: 1,
-      title: "Cool Album",
-    }
-  ];
 
   let resolver: AlbumResolver;
   let route: ActivatedRoute;
@@ -36,7 +29,7 @@ describe('AlbumService', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            albums: albumMock,
+            albums: ALBUM_MOCKS,
           }
         }
       ],
@@ -49,7 +42,7 @@ describe('AlbumService', () => {
 
     getSpy = spyOn(service, "getAlbums")
       .and
-      .returnValue(of(albumMock));
+      .returnValue(of(ALBUM_MOCKS));
   });
 
   it("should resolve a observable", () => {

@@ -6,24 +6,11 @@ import {Observable, of} from 'rxjs';
 
 import {UserListResolver} from './user-list.resolver';
 import {UserService} from '../../shared/user.service';
+import {USER_MOCKS} from '../../shared/mocks/user-mocks';
 
 import Spy = jasmine.Spy;
 
-
 describe('UserListService', () => {
-
-  const userMock = [
-    {
-      id: 1,
-      name: "Leane Miller",
-      username: "coolleane",
-      email: "e@e.de",
-      address: {},
-      phone: "000",
-      website: "www",
-      company: {},
-    }
-  ];
 
   let resolver: UserListResolver;
   let route: ActivatedRoute;
@@ -42,7 +29,7 @@ describe('UserListService', () => {
         {
           provide: ActivatedRoute,
           useValue: {
-            userList: userMock,
+            userList: USER_MOCKS,
           },
         }
       ]
@@ -55,7 +42,7 @@ describe('UserListService', () => {
 
     getSpy = spyOn(service, "getUsers")
       .and
-      .returnValue(of(userMock));
+      .returnValue(of(USER_MOCKS));
   });
 
   it("should resolve a observable", () => {

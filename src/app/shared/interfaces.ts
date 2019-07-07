@@ -1,7 +1,3 @@
-export interface IUserList {
-  users: IUser[];
-}
-
 export interface IUser {
   id: number;
   name: string;
@@ -39,18 +35,9 @@ export interface IAlbum {
 }
 
 export interface IPhoto {
-  albumId: 1;
-  id: 1;
+  albumId: number;
+  id: number;
   title: string;
   url: string;
   thumbnailUrl: string;
-}
-
-/**
- * Is used to display the user in the user-list table
- */
-export interface IDisplayedUser {
-  id: number;
-  name: string;
-  address: string;
 }
