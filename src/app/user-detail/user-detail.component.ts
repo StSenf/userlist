@@ -32,5 +32,4 @@ export class UserDetailComponent implements OnInit {
 
     this.selectedUserAlbum$.next(albumsOfUser);
   }
-
 }

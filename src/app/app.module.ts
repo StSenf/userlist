@@ -15,6 +15,8 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
 import {UserDetailResolver} from './user-detail/resolver/user-detail.resolver';
 import {UserListResolver} from './user-list/resolver/user-list.resolver';
 import {UserService} from './shared/user.service';
+import {PhotoResolver} from './user-detail/resolver/photo.resolver';
+import {PhotoService} from './shared/services/photo.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {UserService} from './shared/user.service';
   providers: [
     AlbumService,
     AlbumResolver,
+    PhotoService,
+    PhotoResolver,
     UserService,
     UserDetailResolver,
     UserListResolver,

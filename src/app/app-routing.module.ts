@@ -6,6 +6,7 @@ import {UserDetailComponent} from './user-detail/user-detail.component';
 import {UserDetailResolver} from './user-detail/resolver/user-detail.resolver';
 import {UserListResolver} from './user-list/resolver/user-list.resolver';
 import {AlbumResolver} from './user-detail/resolver/album.resolver';
+import {PhotoResolver} from './user-detail/resolver/photo.resolver';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     resolve: {
       singleUser: UserDetailResolver,
       albums: AlbumResolver,
+      photos: PhotoResolver,
     },
   },
   {
