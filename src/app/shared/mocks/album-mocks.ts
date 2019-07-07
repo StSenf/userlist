@@ -22,7 +22,7 @@ export const ALBUM_MOCKS: IAlbum[] = [
     title:  "non esse culpa molestiae omnis sed optio"
   },
   {
-    userId: 1,
+    userId: 2,
     id:     5,
     title:  "eaque aut omnis a"
   },
