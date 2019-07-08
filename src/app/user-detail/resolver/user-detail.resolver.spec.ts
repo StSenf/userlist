@@ -60,7 +60,7 @@ describe("UserDetailService", () => {
   });
 
   it("should resolve expected user", () => {
-    const snapshot = route.snapshot as ActivatedRouteSnapshot
+    const snapshot = route.snapshot as ActivatedRouteSnapshot;
     resolver
       .resolve(snapshot).subscribe((user) => {
       expect(user).toEqual(mockedUser);
