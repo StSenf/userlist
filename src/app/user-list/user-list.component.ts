@@ -18,12 +18,19 @@ export class UserListComponent implements OnInit {
               private _activatedRoute: ActivatedRoute,
               private _router: Router) { }
 
-  public ngOnInit() {
-    this.dataSource = this._activatedRoute.snapshot.data.userList;
+  public ngOnInit(): void {
+    this.getUserlist();
   }
 
   public navigateTo(id: number): void {
     this._router.navigate(["user/" + id]);
+  }
+
+  private getUserlist(): void {
+    const userlist = this._activatedRoute.snapshot.data.userList;
+    userlist.map((user) => new UserVm(user));
+
+    this.dataSource = userlist;
   }
 
 }

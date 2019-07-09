@@ -34,7 +34,8 @@ export class UserDetailComponent implements OnInit {
   }
 
   private getSelectedUser(): void {
-    this.selectedUser = this._activatedRoute.snapshot.data.singleUser;
+    const singleUser  = this._activatedRoute.snapshot.data.singleUser;
+    this.selectedUser = new UserVm(singleUser);
   }
 
   private getAlbumsOfSelectedUser(): void {
