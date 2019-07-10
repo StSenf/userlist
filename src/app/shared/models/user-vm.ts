@@ -15,7 +15,7 @@ export class UserVm implements IUser {
   }
 
   public get userAddress(): string {
-    return this.address && this.convertAddressToReadableFormat(this.address);
+    return this.address && this.convertAddressToReadableFormat(this.address) || "";
   }
 
   private convertAddressToReadableFormat(address: IAddress): string {
