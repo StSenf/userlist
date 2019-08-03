@@ -4,6 +4,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {of, Observable} from "rxjs";
 
 import {USER_MOCKS} from "../../shared/mocks/user-mocks";
+import {UserVm} from "../../shared/models/user-vm";
 import {UserService} from "../../shared/services/user.service";
 import {UserListResolver} from "./user-list.resolver";
 
@@ -11,7 +12,7 @@ import Spy = jasmine.Spy;
 
 describe("UserListService", () => {
 
-  const userMocks = USER_MOCKS;
+  const mockUsers: UserVm[] = USER_MOCKS.map((user) => new UserVm(user));
 
   let resolver: UserListResolver;
   let service: UserService;
@@ -35,7 +36,7 @@ describe("UserListService", () => {
 
     getSpy = spyOn(service, "getUsers")
       .and
-      .returnValue(of(userMocks));
+      .returnValue(of(mockUsers));
   });
 
   it("should resolve a observable", () => {
@@ -52,7 +53,7 @@ describe("UserListService", () => {
   it("should resolve a list of users", () => {
     resolver
       .resolve().subscribe((users) => {
-      expect(users).toEqual(userMocks);
+      expect(users).toEqual(mockUsers);
     });
   });
 

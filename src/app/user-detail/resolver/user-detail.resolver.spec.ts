@@ -5,6 +5,7 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {of, Observable} from "rxjs";
 
 import {USER_MOCKS} from "../../shared/mocks/user-mocks";
+import {UserVm} from "../../shared/models/user-vm";
 import {UserService} from "../../shared/services/user.service";
 import {UserDetailResolver} from "./user-detail.resolver";
 
@@ -12,7 +13,7 @@ import Spy = jasmine.Spy;
 
 describe("UserDetailService", () => {
 
-  const mockedUser = USER_MOCKS[0];
+  const mockedUser: UserVm = new UserVm(USER_MOCKS[0]);
 
   let resolver: UserDetailResolver;
   let service: UserService;

@@ -4,10 +4,10 @@ import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
 
-import {IUser} from "../shared/interfaces";
 import {ALBUM_MOCKS} from "../shared/mocks/album-mocks";
 import {PHOTO_MOCKS} from "../shared/mocks/photo-mocks";
 import {USER_MOCKS} from "../shared/mocks/user-mocks";
+import {UserVm} from "../shared/models/user-vm";
 import {UserAddressPipe} from "../shared/pipes/user-address.pipe";
 import {UserDetailComponent} from "./user-detail.component";
 
@@ -16,7 +16,7 @@ describe("UserDetailComponent", () => {
   let fixture: ComponentFixture<UserDetailComponent>;
   let route: ActivatedRouteSnapshot;
 
-  const mockUser: IUser = USER_MOCKS[0];
+  const mockUser: UserVm = new UserVm(USER_MOCKS[0]);
 
   beforeEach(async(() => {
 

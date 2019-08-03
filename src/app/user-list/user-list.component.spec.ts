@@ -6,6 +6,7 @@ import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
 
 import {USER_MOCKS} from "../shared/mocks/user-mocks";
+import {UserVm} from "../shared/models/user-vm";
 import {UserAddressPipe} from "../shared/pipes/user-address.pipe";
 import {UserService} from "../shared/services/user.service";
 import {UserListComponent} from "./user-list.component";
@@ -14,6 +15,8 @@ describe("UserListComponent", () => {
   let component: UserListComponent;
   let fixture: ComponentFixture<UserListComponent>;
   let route: ActivatedRouteSnapshot;
+
+  const mockUsers: UserVm[] = USER_MOCKS.map((user) => new UserVm(user));
 
   beforeEach(async(() => {
 
@@ -37,7 +40,7 @@ describe("UserListComponent", () => {
           useValue: {
             snapshot: {
               data: {
-                userList: USER_MOCKS,
+                userList: mockUsers,
               },
               url: [
                 {
@@ -67,7 +70,7 @@ describe("UserListComponent", () => {
   describe("#ngOnInit", () => {
 
     it("should get correct dataSource", () => {
-      expect(component.dataSource).toEqual(USER_MOCKS);
+      expect(component.dataSource).toEqual(mockUsers);
     });
   });
 });
