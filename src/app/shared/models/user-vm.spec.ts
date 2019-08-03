@@ -14,7 +14,12 @@ describe("UserVm", () => {
 
   describe("#userAddress", () => {
 
-    it("returns readable address", () => {
+    it("should return a string", () => {
+      const typeOfExpectedAddress = typeof user.userAddress;
+      expect(typeOfExpectedAddress).toBe("string");
+    })
+
+    it("should return readable address", () => {
       const readableAddress = user.address.street + " " +
                               user.address.suite + ", " +
                               user.address.zipcode + " " +
