@@ -37,7 +37,6 @@ export class UserDetailComponent implements OnInit {
     const photosOfClickedAlbum = photoList.filter((photo) => photo.albumId === clickedAlbumId);
 
     this.clickedAlbumPhoto$.next(photosOfClickedAlbum);
-    this.selectedAlbum = album;
   }
 
   private getSelectedUser(): void {
