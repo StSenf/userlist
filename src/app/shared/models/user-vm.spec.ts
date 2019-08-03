@@ -1,5 +1,5 @@
-import {UserVm} from "./user-vm";
 import {USER_MOCKS} from "../mocks/user-mocks";
+import {UserVm} from "./user-vm";
 
 describe("UserVm", () => {
   let user: UserVm;
@@ -17,7 +17,7 @@ describe("UserVm", () => {
     it("should return a string", () => {
       const typeOfExpectedAddress = typeof user.userAddress;
       expect(typeOfExpectedAddress).toBe("string");
-    })
+    });
 
     it("should return readable address", () => {
       const readableAddress = user.address.street + " " +
