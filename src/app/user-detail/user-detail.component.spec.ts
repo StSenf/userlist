@@ -78,13 +78,13 @@ describe("UserDetailComponent", () => {
     });
   });
 
-  describe("#showPhotosOfSelectedAlbum", () => {
+  describe("#selectAlbum", () => {
 
     it("should get all photos of clicked album", () => {
       const clickedAlbum         = ALBUM_MOCKS[0];
       const photosOfClickedAlbum = PHOTO_MOCKS.filter((photo) => photo.albumId === clickedAlbum.id);
 
-      component.showPhotosOfSelectedAlbum(clickedAlbum);
+      component.selectAlbum(clickedAlbum);
       fixture.detectChanges();
 
       component.clickedAlbumPhoto$.subscribe((photos) => {

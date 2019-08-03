@@ -15,6 +15,7 @@ import {UserVm} from "../shared/models/user-vm";
 export class UserDetailComponent implements OnInit {
 
   public selectedUser: UserVm;
+  public selectedAlbum: IAlbum;
   public selectedUserAlbum$ = new ReplaySubject<AlbumVm[]>(1);
   public clickedAlbumPhoto$ = new ReplaySubject<PhotoVm[]>(1);
 
@@ -25,12 +26,18 @@ export class UserDetailComponent implements OnInit {
     this.getAlbumsOfSelectedUser();
   }
 
-  public showPhotosOfSelectedAlbum(album: IAlbum): void {
+  public selectAlbum(album: IAlbum): void {
+    this.selectedAlbum = album;
+    this.showPhotosOfSelectedAlbum(album);
+  }
+
+  private showPhotosOfSelectedAlbum(album: IAlbum): void {
     const clickedAlbumId       = album.id;
     const photoList            = this._activatedRoute.snapshot.data.photos;
     const photosOfClickedAlbum = photoList.filter((photo) => photo.albumId === clickedAlbumId);
 
     this.clickedAlbumPhoto$.next(photosOfClickedAlbum);
+    this.selectedAlbum = album;
   }
 
   private getSelectedUser(): void {

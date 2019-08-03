@@ -53,13 +53,27 @@ describe("Userlist app", () => {
       expect(photoContainer.isPresent()).toBe(false);
     });
 
-    it("click on album renders photos", () => {
-      const albumItems     = element.all(by.className("list-group-item"));
-      const firstAlbumItem = albumItems.first();
+    describe("click on album", () => {
+      let firstAlbumTitle;
 
-      firstAlbumItem.click();
+      beforeAll(async () => {
+        const firstAlbumItem = element.all(by.className("list-group-item")).first();
+        firstAlbumTitle      = await firstAlbumItem.getText();
 
-      expect(photoContainer.isPresent()).toBe(true);
+        firstAlbumItem.click();
+      });
+
+      it("renders photos", () => {
+        expect(photoContainer.isPresent()).toBe(true);
+      });
+
+      it("shows album title in photo headline", () => {
+        const expectedHeadlineText = `Photos of ${firstAlbumTitle}`;
+        const photoHeadline        = element(by.className("photo-headline"));
+
+        expect(photoHeadline.getText()).toEqual(expectedHeadlineText);
+      });
     });
+
   });
 });

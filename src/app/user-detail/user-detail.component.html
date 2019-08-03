@@ -43,7 +43,10 @@
 
 <div class="row mb-4">
   <div class="col-12">
-    <h5>Photos</h5>
+    <h5 class="photo-headline">
+      Photos
+      <span *ngIf="selectedAlbum">of {{selectedAlbum.title}}</span>
+    </h5>
 
     <div class="photo-container"
          *ngIf="clickedAlbumPhoto$ | async; else infoText">
