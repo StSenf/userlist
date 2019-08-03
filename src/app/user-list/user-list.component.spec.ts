@@ -7,7 +7,6 @@ import {RouterTestingModule} from "@angular/router/testing";
 
 import {USER_MOCKS} from "../shared/mocks/user-mocks";
 import {UserVm} from "../shared/models/user-vm";
-import {UserAddressPipe} from "../shared/pipes/user-address.pipe";
 import {UserService} from "../shared/services/user.service";
 import {UserListComponent} from "./user-list.component";
 
@@ -23,7 +22,6 @@ describe("UserListComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         UserListComponent,
-        UserAddressPipe,
       ],
       imports: [
         NoopAnimationsModule,

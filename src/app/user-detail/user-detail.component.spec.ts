@@ -8,7 +8,6 @@ import {ALBUM_MOCKS} from "../shared/mocks/album-mocks";
 import {PHOTO_MOCKS} from "../shared/mocks/photo-mocks";
 import {USER_MOCKS} from "../shared/mocks/user-mocks";
 import {UserVm} from "../shared/models/user-vm";
-import {UserAddressPipe} from "../shared/pipes/user-address.pipe";
 import {UserDetailComponent} from "./user-detail.component";
 
 describe("UserDetailComponent", () => {
@@ -23,7 +22,6 @@ describe("UserDetailComponent", () => {
     TestBed.configureTestingModule({
       declarations: [
         UserDetailComponent,
-        UserAddressPipe,
       ],
       imports: [
         NoopAnimationsModule,

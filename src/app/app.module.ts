@@ -8,7 +8,6 @@ import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
 import {UserListComponent} from "./user-list/user-list.component";
 
-import {UserAddressPipe} from "./shared/pipes/user-address.pipe";
 import {AlbumService} from "./shared/services/album.service";
 import {PhotoService} from "./shared/services/photo.service";
 import {UserService} from "./shared/services/user.service";
@@ -26,7 +25,6 @@ import {UserListResolver} from "./user-list/resolver/user-list.resolver";
     AppComponent,
     UserListComponent,
     UserDetailComponent,
-    UserAddressPipe,
   ],
   imports: [
     AppRoutingModule,
