@@ -27,10 +27,8 @@ export class UserListComponent implements OnInit {
   }
 
   private getUserlist(): void {
-    const userlist = this._activatedRoute.snapshot.data.userList;
-    userlist.map((user) => new UserVm(user));
-
-    this.dataSource = userlist;
+    const snapshot  = this._activatedRoute.snapshot.data.userList;
+    this.dataSource = snapshot.map((user) => new UserVm(user));
   }
 
 }
