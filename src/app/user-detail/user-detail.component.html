@@ -33,7 +33,7 @@
       <li class="list-group-item"
           *ngFor="let album of selectedUserAlbum$ | async;
                   let idx = index;"
-          (click)="showPhotosOfSelectedAlbum(album)">
+          (click)="selectAlbum(album)">
         {{album.title}}
       </li>
     </ul>
