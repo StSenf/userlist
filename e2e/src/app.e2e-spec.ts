@@ -30,7 +30,7 @@ describe("Userlist app", () => {
     it("click on row navigates to user detail", () => {
       matRow.first().click();
       const url         = browser.getCurrentUrl();
-      const expectedUrl = `${browser.baseUrl}/user/1`;
+      const expectedUrl = `${browser.baseUrl}user/1`;
 
       expect(url).toBe(expectedUrl);
     });
