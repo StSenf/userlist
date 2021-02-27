@@ -10,9 +10,19 @@
     "no-duplicate-super": true,
     "no-duplicate-variable": true,
     "no-switch-case-fall-through": true,
+    "curly": true,
     "switch-default": true,
+    "deprecation": {
+      "severity": "warning"
+    },
     "no-var-keyword": true,
     "triple-equals": true,
+    "import-spacing": true,
+    "indent": {
+      "options": [
+        "spaces"
+      ]
+    },
     "cyclomatic-complexity": [true, 7],
     "max-file-line-count": [true, 300],
     "max-line-length": [true, 120],
@@ -27,7 +37,19 @@
     "arrow-parens": true,
     "eofline": true,
     "quotemark": [true, "double"],
-    "semicolon": [true, "always"],
+    "semicolon": [
+      true,
+      "always"
+    ],
+    "space-before-function-paren": {
+      "options": {
+        "anonymous": "never",
+        "asyncArrow": "always",
+        "constructor": "never",
+        "method": "never",
+        "named": "never"
+      }
+    },
     "member-access": true,
     "ordered-imports": [
       true,
@@ -36,6 +58,24 @@
         "named-imports-order": "lowercase-first"
       }
     ],
+    "typedef-whitespace": {
+      "options": [
+        {
+          "call-signature": "nospace",
+          "index-signature": "nospace",
+          "parameter": "nospace",
+          "property-declaration": "nospace",
+          "variable-declaration": "nospace"
+        },
+        {
+          "call-signature": "onespace",
+          "index-signature": "onespace",
+          "parameter": "onespace",
+          "property-declaration": "onespace",
+          "variable-declaration": "onespace"
+        }
+      ]
+    },
     "directive-selector": [
       true,
       "attribute",
@@ -47,6 +87,16 @@
       "element",
       "app",
       "kebab-case"
-    ]
+    ],
+    "whitespace": {
+      "options": [
+        "check-branch",
+        "check-decl",
+        "check-operator",
+        "check-separator",
+        "check-type",
+        "check-typecast"
+      ]
+    }
   }
 }
