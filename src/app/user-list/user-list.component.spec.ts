@@ -1,6 +1,6 @@
 import {HttpClientTestingModule} from "@angular/common/http/testing";
 import {async, getTestBed, ComponentFixture, TestBed} from "@angular/core/testing";
-import {MatTableModule} from "@angular/material";
+import {MatTableModule} from "@angular/material/table";
 import {NoopAnimationsModule} from "@angular/platform-browser/animations";
 import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 import {RouterTestingModule} from "@angular/router/testing";
